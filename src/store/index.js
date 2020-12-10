@@ -15,24 +15,44 @@ export default new Vuex.Store({
     ],
     subtitulo: 'Juegos de PC',
     titulo: '32 bits',
+    busqueda: null
   },
   getters: {
-    enviarTitulo(state){
+    titulo(state){
       return state.titulo;
     },
-    enviarSubTitulo(state){
+    subTitulo(state){
       return state.subtitulo;
     },
-    enviarListaJuegos(state){
-      return state.listaJuegos;
+    listaJuegos(state){
+      return state.listaJuegos.filter(result =>{
+        if (state.busqueda) {
+          return result.codigo == state.busqueda
+        } else {
+          return result;
+        }
+      });
     },
-    cantidadJuegosTotales(state,getters){
-      return getters.enviarListaJuegos.length;
-    }
+    juegosTotal(state,getters){
+      return getters.listaJuegos.length;
+    },
+    cantidadStock(state,getters){
+      return getters.listaJuegos.map(result => parseInt(result.stock))
+    },
+    totalStock(state,getters){
+      return getters.cantidadStock.reduce((acumulado,total)=>{
+        return acumulado+total;
+      },0);
+    },
   },
   mutations: {
+    mutandoBusqueda(state,valor){
+      state.busqueda = valor;
+    },
+
+
   },
   actions: {
-  },
 
+  },
 })

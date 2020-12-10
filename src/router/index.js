@@ -1,19 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Inicio from '../views/Inicio.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/inicio',
+    path: '/',
     name: 'Inicio',
-    component: () => import(/* webpackChunkName: "inicio" */ '../views/Inicio.vue')
+    component: Inicio
   },
   {
     path: '/busqueda',
     name: 'Busqueda',
     component: () => import(/* webpackChunkName: "busqueda" */ '../views/Busqueda.vue')
   },
+
   {
     path: '/total',
     name: 'Total',
@@ -22,7 +25,7 @@ const routes = [
   {
     path: '/ventas',
     name: 'Ventas',
-    component: () => import(/* webpackChunkName: "ventas" */ '../views/Ventas.vue')
+    component: () => import(/* webpackChunkName: "Ventas" */ '../views/Ventas.vue')
   },
   {
     path: '*',
