@@ -2,7 +2,6 @@
     <div class="inicio text-center  text-white m-5">
         <h1 class="inicio__2">{{titulo}}</h1>
         <h2 class="inicio__2">{{subTitulo}}</h2>
-
     </div>
 </template>
 

@@ -8,7 +8,7 @@ export default new Vuex.Store({
     listaJuegos: [
       { codigo: "0001", nombre: "Sekiro", stock: "100", precio: "30000", color: "red", destacado: "true" },
       { codigo: "0002", nombre: "Fifa 21", stock: "100", precio: "25000", color: "blue", destacado: "false" },
-      { codigo: "0003", nombre: "Gear of War 4", stock: "100", precio: "15000", color: "green", destacado: "true" },
+      { codigo: "0003", nombre: "God of War 4", stock: "100", precio: "15000", color: "green", destacado: "true" },
       { codigo: "0004", nombre: "Mario Tennis Aces", stock: "100", precio: "35000", color: "yellow", destacado: "false" },
       { codigo: "0005", nombre: "Bloodborne", stock: "100", precio: "10000", color: "blue", destacado: "false" },
       { codigo: "0006", nombre: "Forza Horizon 4", stock: "100", precio: "20000", color: "red", destacado: "true" },
@@ -28,7 +28,7 @@ export default new Vuex.Store({
       return state.listaJuegos.filter(result =>{
         if (state.busqueda) {
           return result.codigo == state.busqueda
-        } else {
+        }else {
           return result;
         }
       });
@@ -49,10 +49,18 @@ export default new Vuex.Store({
     mutandoBusqueda(state,valor){
       state.busqueda = valor;
     },
+    mutandoDestacado(state,index){
+      state.listaJuegos[index].destacado = !state.listaJuegos[index].destacado;
+    },
 
 
   },
   actions: {
-
+    valorBusqueda({commit},valor){
+      commit('mutandoBusqueda',valor);
+    },
+    actualizarDestacado({commit},index){
+      commit('mutandoDestacado',index);
+    },
   },
 })

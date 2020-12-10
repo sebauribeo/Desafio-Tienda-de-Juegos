@@ -35,7 +35,7 @@ body {
     padding: 0;
     height: 140vh;
     font-family: monospace;
-    background-image: linear-gradient(36deg, #fff, #ff7d04, #008600, #b40000 , #a0a000,  #4d4dff, #9802c5, #ffffff);
+    background-image: linear-gradient(36deg, #ffffff, #ff7d04, #008600, #b40000 , #a0a000,  #4d4dff, #9802c5, #ffffff);
     background-size: 400%;
     animation: bg 15s infinite;
 }
